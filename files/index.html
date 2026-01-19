@@ -1,10 +1,111 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Ansible Demo</title>
-    </head>
-    <body>
-        <h1>Deployed by Ansible </h1>
-        <p>Hostname: {{ ansible_hostname }}</p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ansible Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f6f8;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        code {
+            background: #eee;
+            padding: 4px 6px;
+            display: block;
+            margin: 10px 0;
+            border-left: 4px solid #2c3e50;
+        }
+        .output {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📘 Ansible Tutorial</h1>
+<p>Learn Ansible step-by-step with commands and real outputs.</p>
+
+<hr>
+
+<h2>1️⃣ What is Ansible?</h2>
+<p>
+Ansible is an open-source automation tool used for configuration management,
+application deployment, and orchestration.
+</p>
+
+<h2>2️⃣ Ansible Architecture</h2>
+<ul>
+    <li>Control Node (Master)</li>
+    <li>Managed Nodes (Workers)</li>
+    <li>SSH-based communication</li>
+</ul>
+
+<h2>3️⃣ Install Ansible (Ubuntu)</h2>
+<code>
+sudo apt update <br>
+sudo apt install -y ansible
+</code>
+
+<h2>4️⃣ Inventory File</h2>
+<code>
+[workers] <br>
+worker1 ansible_host=10.0.0.11 <br>
+worker2 ansible_host=10.0.0.12 <br>
+worker3 ansible_host=10.0.0.13
+</code>
+
+<h2>5️⃣ Test Connectivity</h2>
+<code>
+ansible all -m ping
+</code>
+
+<h3>Output:</h3>
+<div class="output">
+worker1 | SUCCESS => pong <br>
+worker2 | SUCCESS => pong <br>
+worker3 | SUCCESS => pong
+</div>
+
+<h2>6️⃣ Ansible Playbook Example</h2>
+<code>
+- name: Install nginx <br>
+  apt: <br>
+&nbsp;&nbsp;name: nginx <br>
+&nbsp;&nbsp;state: present
+</code>
+
+<h2>7️⃣ Run Playbook</h2>
+<code>
+ansible-playbook deploy-website.yml
+</code>
+
+<h3>Output:</h3>
+<div class="output">
+changed=2 ok=3 failed=0
+</div>
+
+<h2>8️⃣ Verify Website</h2>
+<p>Open browser:</p>
+<code>
+http://&lt;worker-ip&gt;
+</code>
+
+<hr>
+
+<h2>🎉 Conclusion</h2>
+<p>
+This website was deployed using Ansible automation.
+You learned inventory, playbooks, modules, and real execution outputs.
+</p>
+
+<p><b>Created by:</b> Bishal Kumar Sahoo</p>
+
+</body>
 </html>
