@@ -1,0 +1,4 @@
+[workers]
+worker1 ansible_host=3.7.254.53
+worker2 ansible_host=13.235.132.152
+worker3 ansible_host=65.1.84.154
